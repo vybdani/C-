@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace Aplicacion_Windows_Form
 {
@@ -17,12 +18,17 @@ namespace Aplicacion_Windows_Form
             InitializeComponent();
         }
 
-        //Si el usuario escribe su nombre en textBox1 y luego presiona button1, ¿cómo usarías el código MessageBox.Show(...) para que el mensaje muestre "Hola" seguido del nombre que está escrito en el textBox1?
+      
 
         private void label1_Click(object sender, EventArgs e)
         {
 
         }
+
+        //Queremos que al hacer clic en el button1:
+        //El programa revise si el tbNombre está vacío.
+        //Si(if) está vacío, debe mostrar un MessageBox que diga "Por favor, escribe tu nombre".
+        //Si no(else), debe mostrar el MessageBox que ya tenías: "Holiss " + el nombre.
 
         public void tbNombre_TextChanged(object sender, EventArgs e)
         {
@@ -30,8 +36,16 @@ namespace Aplicacion_Windows_Form
 
         private void button1_Click(object sender, EventArgs e)
         {
-            String Nombre = tbNombre.Text;
-            MessageBox.Show("Holiss " + Nombre);
+            
+            if (tbNombre.Text == "")
+            {
+                MessageBox.Show("Por favor, escribe tu nombre");
+            }
+            else
+            {
+                String Nombre = tbNombre.Text;
+                MessageBox.Show("Holiss " + Nombre);
+            }
         }
     }
 }
